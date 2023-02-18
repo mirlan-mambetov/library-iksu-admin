@@ -1,0 +1,16 @@
+
+.box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  .column{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    max-width: 46%;
+    width: 100%;
+  }
+}

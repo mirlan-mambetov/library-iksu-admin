@@ -1,0 +1,14 @@
+.notify{
+  position: absolute;
+  top: -22%;
+  right: -30%;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--red-color);
+  font-size: 12px;
+  color: var(--white-color);
+  border-radius: 50%;
+}

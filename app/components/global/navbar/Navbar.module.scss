@@ -1,0 +1,18 @@
+.navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  grid-area: navbar;
+  padding-right: 30px !important;
+  border-bottom: 1px solid var(--border-color);
+  .action{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    li{
+      position: relative;
+      cursor: pointer;
+      
+    }
+  }
+}

@@ -1,0 +1,28 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+:root {
+	--primary-color: #000000;
+	--white-color: #FFFFFF;
+	--border-color: rgba(119, 119, 119, 0.1);
+	--overlay-color: rgba(60, 60, 60, .3);
+	--red-color: rgb(255, 53, 53);
+}
+body {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 300;
+	color: var(--primary-color);
+}
+a,
+input,
+ul {
+	outline: none;
+	text-decoration: none;
+	list-style-type: none;
+}
+a:focus,
+input:focus {
+	outline: none;
+}
