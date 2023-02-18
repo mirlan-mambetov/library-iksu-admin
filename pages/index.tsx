@@ -18,7 +18,7 @@ const DashboardLogin: NextPageAuth = (props) => {
         isClosable: true,
       })
 		}
-	}, [errors])
+	}, [errors, toastr])
 
 	return <Login {...props}/>
 }
