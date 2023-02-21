@@ -17,9 +17,11 @@ import { inputStyles } from '@/../utils/styles'
 import Head from 'next/head'
 import { logInValidate } from '@/../utils/form.validate'
 import { useActions } from '@/hooks/use.actions'
+import { useAuth } from '@/hooks/use.auth'
 
 export const Login: FC = () => {
 	const {login} = useActions()
+	const {isLoading} = useAuth()
 	const [show, setShow] = useState(false)
 	const handleClick = () => setShow(!show)
 	
@@ -63,7 +65,7 @@ export const Login: FC = () => {
 										</InputRightElement>
 									</FormControl>
 								</InputGroup>
-								<Button isDisabled={!isValid} type='submit' colorScheme='facebook' rightIcon={<IoEnterOutline />} color="whiteAlpha.900">
+								<Button isDisabled={!isValid && isLoading} type='submit' colorScheme='facebook' rightIcon={<IoEnterOutline />} color="whiteAlpha.900">
 									Войти
 								</Button>
 							</Stack>

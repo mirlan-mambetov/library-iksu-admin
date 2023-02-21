@@ -10,7 +10,7 @@ import {
 import { persistore, store } from '../store'
 import NextNProgress from 'nextjs-progressbar'
 import { PersistGate } from 'redux-persist/integration/react'
-import { ProtectRoute } from '../utils/auth.check'
+import { ProtectRoute } from '../protecte/auth.check'
 
 export default function App({ Component, pageProps }: AppProps) {
 	const modalProvider = ModalComponentProvider()
