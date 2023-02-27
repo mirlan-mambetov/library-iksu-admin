@@ -2,6 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    remotePatterns: [{
+      protocol: 'https',
+      hostname: '**'
+    }],
+    domains: ['api.libraryiksu.kg']
+  }
 }
 
 module.exports = nextConfig

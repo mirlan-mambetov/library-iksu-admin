@@ -1,10 +1,8 @@
 import { IMenuLink } from '@/interfaces/Menu-link.interface'
-import { AiOutlineDashboard } from 'react-icons/ai'
+import { AiFillFolder, AiOutlineDashboard } from 'react-icons/ai'
 // import { GiEarthAfricaEurope } from 'react-icons/gi'
 // import { AiOutlineBarChart } from 'react-icons/ai'
 import { FaQuestionCircle } from 'react-icons/fa'
-import { AiFillHome } from 'react-icons/ai'
-import { MdContactSupport } from 'react-icons/md'
 
 export const menuData = {
 	dashboard: [
@@ -31,16 +29,16 @@ export const menuData = {
 		}
 	] as IMenuLink[],
 	website: [
-		// {
-		// 	link: '/website',
-		// 	name: 'Home',
-		// 	icon: AiFillHome
-		// },
-		// {
-		// 	link: '/website/about',
-		// 	name: 'About',
-		// 	icon: MdContactSupport
-		// },
+		{
+			link: '/website',
+			name: 'Главная страница',
+			icon: AiFillFolder
+		},
+		{
+			link: '/website/about',
+			name: 'О библиотеке',
+			icon: AiFillFolder
+		},
 		// {
 		// 	link: '/website/contacts',
 		// 	name: 'Contacts',
