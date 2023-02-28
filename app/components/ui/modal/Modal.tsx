@@ -4,38 +4,32 @@ import {
 	ModalOverlay,
 	ModalContent,
 	ModalHeader,
-	ModalFooter,
-	ModalBody,
 	ModalCloseButton,
-	Text,
-	Button
+	ModalBody
 } from '@chakra-ui/react'
 import { ModalComponentInitialContext } from '@/contexts/Modal-component'
+import { FormAdd } from '../form/FormAdd'
+import { FormUpdate } from '../form/FormUpdate'
 
 export const ModalComponent: FC = () => {
-	const { handlerClose, isOpen } = useContext(ModalComponentInitialContext)
+	const { handlerClose, isOpen, formType } = useContext(
+		ModalComponentInitialContext
+	)
 
 	return (
 		<Modal blockScrollOnMount={false} isOpen={isOpen} onClose={handlerClose}>
 			<ModalOverlay />
 			<ModalContent>
-				<ModalHeader>Modal Title</ModalHeader>
+				<ModalHeader>
+					{formType === 'ADD' ? 'Добавить' : 'Обновить'}
+				</ModalHeader>
 				<ModalCloseButton />
 				<ModalBody>
-					<Text fontWeight='bold' mb='1rem'>
-						You can scroll the content behind the modal
-					</Text>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium,
-					autem sapiente! Quaerat commodi esse dolore consequuntur corrupti
-					laboriosam quisquam beatae.
+					{formType === 'ADD' ? <FormAdd /> : <FormUpdate />}
 				</ModalBody>
-
-				<ModalFooter>
-					<Button colorScheme='blue' mr={3} onClick={handlerClose}>
-						Close
-					</Button>
-					<Button variant='ghost'>Secondary Action</Button>
-				</ModalFooter>
+				{/* <ModalFooter>
+				
+				</ModalFooter> */}
 			</ModalContent>
 		</Modal>
 	)

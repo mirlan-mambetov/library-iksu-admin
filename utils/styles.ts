@@ -4,3 +4,6 @@ export const inputStyles = {
 	border: '1px solid var(--chakra-colors-blackAlpha-200)',
 	borderRadius: '4px'
 }
+export const labeleStyle = {
+	fontSize: 'xs'
+}

@@ -1,15 +1,18 @@
 import { pageApi } from '@/../api/pages/page-api'
-import { Hero } from '@/components'
+import { Hero, SpinnerComponent } from '@/components'
 import { PagesConstance } from '@/constance/Pages-constance'
 import { Layout } from '@/layout/Layout'
 import { FC } from 'react'
 
 export const About: FC = () => {
-	const {isLoading, error, data: Page} = pageApi.useFetchPageQuery(PagesConstance.ABOUTPAGE)
+	const { isLoading, data: Page } = pageApi.useFetchPageQuery(
+		PagesConstance.ABOUTPAGE
+	)
 	return (
 		<Layout title='Website about page'>
+			{isLoading && <SpinnerComponent />}
 			{/* Hero */}
-			{Page && <Hero data={Page.hero}/>}
+			{Page && <Hero data={Page.hero} />}
 			<div>about</div>
 		</Layout>
 	)

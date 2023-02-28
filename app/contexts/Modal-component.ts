@@ -1,31 +1,51 @@
 import { createContext, useState } from 'react'
 
-export const ModalComponentInitialContext = createContext({
+interface IInitialContext {
+	isOpen: boolean,
+	updatedId: number,
+	updatedName: "UPDATEHERO" | "",
+	formType: "ADD" | "UPDATE" | "",
+
+}
+interface IInitialFunctionContext {
+	handlerOpen: (updatedId, updatedName, formType) => void,
+	handlerClose: () => void
+}
+const initialContext: IInitialContext & IInitialFunctionContext = {
 	isOpen: false,
 	updatedId: 0,
-	updatedName: '',
-	handlerOpen: (id: number | null, componentName: string) => {},
+	updatedName: "",
+	formType: "",
+	handlerOpen: (updatedId, updatedName, formType) => {},
 	handlerClose: () => {}
-})
+}
+
+export const ModalComponentInitialContext = createContext({...initialContext})
 
 export const ModalComponentProvider = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const [updatedId, setUpdatedId] = useState<number>(null)
 	const [updatedName, setUpdatedName] = useState<string>("")
+	const [formType, setFormType] = useState<string>("")
 
-	const handlerOpen = (id: number, componentName: string) => {
+	const handlerOpen = (id: number, updatedName: string, type: string) => {
 		setIsOpen(true)
 		setUpdatedId(id)
-		setUpdatedName(componentName)
+		setUpdatedName(updatedName)
+		setFormType(type)
 	}
 	const handlerClose = () => {
 		setUpdatedId(null)
 		setUpdatedName("")
+		setFormType("")
 		setIsOpen(false)
 	}
 
 	return {
 		isOpen,
+		updatedId,
+		updatedName,
+		formType,
 		handlerClose,
 		handlerOpen
 	}
