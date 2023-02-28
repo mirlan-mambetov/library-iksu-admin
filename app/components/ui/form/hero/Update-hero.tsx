@@ -1,4 +1,8 @@
+import { heroApi } from '@/../api/hero/hero-api'
+import { byteToMb } from '@/../utils/converter'
+import { errorsHandler, isErrorWithMessage } from '@/../utils/error-handler'
 import { inputStyles, labeleStyle } from '@/../utils/styles'
+import { ModalComponentInitialContext } from '@/contexts/Modal-component'
 import {
 	Box,
 	Button,
@@ -10,27 +14,51 @@ import {
 	InputGroup,
 	InputLeftElement,
 	Stack,
-	Text
+	Text,
+	useToast
 } from '@chakra-ui/react'
 import { Form, Formik } from 'formik'
-import { FC, useState } from 'react'
+import { FC, useContext, useState } from 'react'
 import { AiOutlineCloudUpload } from 'react-icons/ai'
-import { IoSendSharp } from 'react-icons/io5'
 
-// interface IHeroDTO {
-// 	title: string
-// 	background: FileList
-// }
 interface IHeroDto {
 	title: string
 	background: string
 }
-export const UpdateHero: FC<{ id: number }> = () => {
+export const UpdateHero: FC<{ id: number }> = ({ id }) => {
 	const [preview, setPreview] = useState(false)
 	const [image, setImage] = useState(null)
+	const { handlerClose } = useContext(ModalComponentInitialContext)
+	const toastr = useToast()
 
-	const submitHandler = (values, actions) => {
-		console.log(values)
+	const [updateHERO, { isLoading }] = heroApi.useUpdateHeroMutation()
+
+	const submitHandler = async (values, actions) => {
+		try {
+			const formData = new FormData()
+			formData.append('title', values.title)
+			formData.append('background', values.background)
+			await updateHERO({ id, data: formData })
+				.unwrap()
+				.then(() => handlerClose())
+		} catch (err) {
+			if (errorsHandler(err)) {
+				const errMsg =
+					// @ts-ignore
+					'error' in err ? err.error : JSON.stringify(err.data.message)
+				toastr({
+					title: `${errMsg}`,
+					status: 'error',
+					isClosable: true
+				})
+			} else if (isErrorWithMessage(err)) {
+				toastr({
+					title: `${err.message}`,
+					status: 'error',
+					isClosable: true
+				})
+			}
+		}
 	}
 
 	return (
@@ -49,7 +77,15 @@ export const UpdateHero: FC<{ id: number }> = () => {
 			}}
 			onSubmit={(values, actions) => submitHandler(values, actions)}
 		>
-			{({ errors, touched, values, handleChange, isValid, setFieldValue }) => (
+			{({
+				errors,
+				touched,
+				values,
+				handleChange,
+				isValid,
+				setFieldValue,
+				isSubmitting
+			}) => (
 				<Form>
 					<Stack
 						sx={{
@@ -72,14 +108,26 @@ export const UpdateHero: FC<{ id: number }> = () => {
 								<FormErrorMessage>{errors.title}</FormErrorMessage>
 							</FormControl>
 						</InputGroup>
-						{/* {preview && (
+						{preview && (
 							<Box sx={{ width: '100%' }}>
-								<Text fontSize='xs' mb={1}>
-									превью
+								<Text fontSize='xs' mb={1} color='red.300'>
+									превью изображения
 								</Text>
-								<Image src={image} width={150} height={150} />
+								<Image
+									src={URL.createObjectURL(image)}
+									width={150}
+									height={150}
+								/>
+								<Box sx={{ mt: '20px' }}>
+									<Text fontSize='xs' color='blue.400'>
+										размер изображения: {byteToMb(image.size)}
+									</Text>
+									<Text fontSize='xs' color='blue.400'>
+										допустимый лимит: 20мб
+									</Text>
+								</Box>
 							</Box>
-						)} */}
+						)}
 						<InputGroup>
 							<FormControl
 								isInvalid={errors.background && touched.background}
@@ -107,6 +155,7 @@ export const UpdateHero: FC<{ id: number }> = () => {
 									onChange={e => {
 										setFieldValue('background', e.currentTarget.files[0])
 										setImage(e.currentTarget.files[0])
+										setPreview(true)
 									}}
 									hidden
 									id='upload'
@@ -117,9 +166,9 @@ export const UpdateHero: FC<{ id: number }> = () => {
 							</FormControl>
 						</InputGroup>
 						<Button
+							isDisabled={!isValid || isSubmitting || isLoading}
 							type='submit'
 							colorScheme='whatsapp'
-							rightIcon={<IoSendSharp size='12px' />}
 							color='whiteAlpha.900'
 							sx={{
 								display: 'flex',
@@ -129,7 +178,7 @@ export const UpdateHero: FC<{ id: number }> = () => {
 								mt: '20px'
 							}}
 						>
-							Обновить
+							Отправить запрос на обновление
 						</Button>
 					</Stack>
 				</Form>

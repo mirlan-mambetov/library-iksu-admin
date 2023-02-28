@@ -38,7 +38,8 @@ export const Hero: FC<HeroProps> = ({data}) => {
 									onClick={() => handlerOpen(h.id, 'UPDATEHERO', 'UPDATE')}
 								/>
 								<Text sx={{ mt: '20px' }} fontSize='xs'>
-									Последнее изменение: {formatDate(h.updatedAt, 'YYYY-MM-DD')}{' '}
+									Последнее изменение:{' '}
+									{formatDate(h.updatedAt, 'YYYY-MM-DD - HH:mm:ss')}{' '}
 								</Text>
 							</CardFooter>
 						</Stack>
