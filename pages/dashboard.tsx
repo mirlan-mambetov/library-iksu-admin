@@ -1,9 +1,7 @@
-import { Dashboard } from '@/pages'
+import { DashboardPage } from '@/pages'
 
-const dashboard = () => {
-  return (
-    <Dashboard/>
-  )
+const Dashboard = () => {
+	return <DashboardPage />
 }
 
-export default dashboard
+export default Dashboard

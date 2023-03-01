@@ -24,8 +24,7 @@ export const menuData = {
 		{
 			link: '/faq',
 			name: 'Раздел Faq',
-			icon: FaQuestionCircle,
-			isBlock: true
+			icon: FaQuestionCircle
 		}
 	] as IMenuLink[],
 	website: [
@@ -38,7 +37,7 @@ export const menuData = {
 			link: '/website/about',
 			name: 'О библиотеке',
 			icon: AiFillFolder
-		},
+		}
 		// {
 		// 	link: '/website/contacts',
 		// 	name: 'Contacts',

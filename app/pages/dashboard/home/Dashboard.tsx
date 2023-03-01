@@ -5,7 +5,7 @@ import { Grid, GridItem } from '@chakra-ui/react'
 
 // import styles from './Dashboard.module.scss'
 
-export const Dashboard: FC = () => {
+export const DashboardPage: FC = () => {
 	return (
 		<Layout title='Welcome to Dashboard '>
 			<Grid templateColumns='repeat(2, 1fr)' gap={2}>
