@@ -22,12 +22,14 @@ export const Notify: FC<NotifyProps> = ({ message, Icon }) => {
 				<PopoverCloseButton />
 				<PopoverHeader>Notifications</PopoverHeader>
 				<PopoverBody>
-					{message.map((m, i) => (
-						<div key={i} style={{ marginBottom: '10px' }}>
-							<span>{m}</span>
-							<br />
-						</div>
-					))}
+					{message
+						? message.map((m, i) => (
+								<div key={i} style={{ marginBottom: '10px' }}>
+									<span>{m}</span>
+									<br />
+								</div>
+						  ))
+						: 'Уведомлений нет..'}
 				</PopoverBody>
 			</PopoverContent>
 		</Popover>

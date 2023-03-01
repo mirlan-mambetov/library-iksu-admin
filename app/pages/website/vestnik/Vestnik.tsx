@@ -2,18 +2,18 @@ import { pageApi } from '@/../api/pages/page-api'
 import { Hero, SpinnerComponent } from '@/components'
 import { PagesConstance } from '@/constance/Pages-constance'
 import { Layout } from '@/layout/Layout'
-import styles from './Home.module.scss'
+import { FC } from 'react'
 
-export const Home = () => {
-	const { isLoading, data: Page } = pageApi.useFetchPageQuery(
-		PagesConstance.MAINPAGE
+export const Vestnik: FC = () => {
+	const { data: Page, isLoading } = pageApi.useFetchPageQuery(
+		PagesConstance.VESTNIKPAGE
 	)
+
 	return (
-		<Layout title='Страница главная'>
+		<Layout title='Страница вестник'>
 			{isLoading && <SpinnerComponent />}
-			{/* Hero */}
+			{/* HERO */}
 			<Hero data={Page?.hero} />
-			<div className={styles.homeSection}></div>
 		</Layout>
 	)
 }

@@ -9,11 +9,10 @@ export const About: FC = () => {
 		PagesConstance.ABOUTPAGE
 	)
 	return (
-		<Layout title='Website about page'>
+		<Layout title='Страница о библиотеке'>
 			{isLoading && <SpinnerComponent />}
 			{/* Hero */}
 			{Page && <Hero data={Page.hero} />}
-			<div>about</div>
 		</Layout>
 	)
 }

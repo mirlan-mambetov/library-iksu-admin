@@ -6,7 +6,6 @@ import { useColorMode } from '@chakra-ui/react'
 
 export const Navbar: FC = () => {
 	const { colorMode, toggleColorMode } = useColorMode()
-	const testDataMessage = ['Hello', 'Hello2']
 	return (
 		<div className={styles.navbar}>
 			<div className={styles.logo}>
@@ -17,7 +16,7 @@ export const Navbar: FC = () => {
 					{colorMode === 'light' ? <CiDark size={20} /> : <CiLight size={20} />}
 				</li>
 				<li title='Notifications'>
-					<NavbarNotify message={testDataMessage} />
+					<NavbarNotify />
 				</li>
 				<li title='Profile setting'>
 					<Profile />

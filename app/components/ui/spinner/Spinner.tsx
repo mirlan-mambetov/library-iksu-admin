@@ -1,11 +1,11 @@
 import { Spinner } from '@chakra-ui/react'
-import {FC} from 'react'
+import { FC } from 'react'
 import styles from './Spinner.module.scss'
 
 export const SpinnerComponent: FC = () => {
-  return (
+	return (
 		<div className={styles.spinner}>
-			<Spinner size='xl' />
+			<Spinner size='xl' color='red' />
 		</div>
 	)
 }

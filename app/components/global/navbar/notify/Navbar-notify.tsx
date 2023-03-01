@@ -7,7 +7,7 @@ import styles from './Notify.module.scss'
 export const NavbarNotify: FC<INavbarNotifyProps> = ({ message }) => {
 	return (
 		<div>
-			{message.length && <div className={styles.notify}>{message.length}</div>}
+			{message && <div className={styles.notify}>{message.length}</div>}
 			<Notify Icon={BsEnvelopeFill} message={message} />
 		</div>
 	)

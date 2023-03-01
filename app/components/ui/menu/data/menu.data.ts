@@ -1,8 +1,18 @@
 import { IMenuLink } from '@/interfaces/Menu-link.interface'
-import { AiFillFolder, AiOutlineDashboard } from 'react-icons/ai'
+import {
+	AiFillHome,
+	AiFillQuestionCircle,
+	AiOutlineDashboard,
+	AiOutlineOrderedList
+} from 'react-icons/ai'
 // import { GiEarthAfricaEurope } from 'react-icons/gi'
 // import { AiOutlineBarChart } from 'react-icons/ai'
 import { FaQuestionCircle } from 'react-icons/fa'
+import { IoNewspaper, IoNewspaperOutline } from 'react-icons/io5'
+import { MdMiscellaneousServices } from 'react-icons/md'
+import { RiFilePaper2Fill } from 'react-icons/ri'
+import { ImBooks } from 'react-icons/im'
+import { BsLayoutTextWindowReverse } from 'react-icons/bs'
 
 export const menuData = {
 	dashboard: [
@@ -31,12 +41,47 @@ export const menuData = {
 		{
 			link: '/website',
 			name: 'Главная страница',
-			icon: AiFillFolder
+			icon: AiFillHome
 		},
 		{
 			link: '/website/about',
 			name: 'О библиотеке',
-			icon: AiFillFolder
+			icon: AiFillQuestionCircle
+		},
+		{
+			link: '/website/services',
+			name: 'Сервисы',
+			icon: MdMiscellaneousServices
+		},
+		{
+			link: '/website/vestnik',
+			name: 'Вестник',
+			icon: IoNewspaper
+		},
+		{
+			link: '/website/teachers',
+			name: 'Труды',
+			icon: RiFilePaper2Fill
+		},
+		{
+			link: '/website/elibrary',
+			name: 'Электронная библиотека',
+			icon: ImBooks
+		},
+		{
+			link: '/website/news',
+			name: 'Новости',
+			icon: IoNewspaperOutline
+		},
+		{
+			link: '/website/window',
+			name: 'Единое окно',
+			icon: BsLayoutTextWindowReverse
+		},
+		{
+			link: '/website/rules',
+			name: 'Правила пользования',
+			icon: AiOutlineOrderedList
 		}
 		// {
 		// 	link: '/website/contacts',
