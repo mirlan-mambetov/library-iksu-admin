@@ -2,7 +2,7 @@ import { pageApi } from '@/../api/pages/page-api'
 import { Layout } from '@/layout/Layout'
 import { PagesConstance } from '@/constance/Pages-constance'
 import { FC } from 'react'
-import { Hero, SpinnerComponent } from '@/components'
+import { Hero, SpinnerComponent, Tabs } from '@/components'
 
 export const Services: FC = () => {
 	const { data: Page, isLoading } = pageApi.useFetchPageQuery(
@@ -14,6 +14,8 @@ export const Services: FC = () => {
 			{isLoading && <SpinnerComponent />}
 			{/* HERO */}
 			<Hero data={Page?.hero} />
+			{/* Tabs */}
+			{Page?.tabs && <Tabs tabs={Page.tabs} />}
 		</Layout>
 	)
 }

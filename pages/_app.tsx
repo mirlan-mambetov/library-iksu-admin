@@ -1,7 +1,7 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'
-import {Provider} from 'react-redux'
+import { Provider } from 'react-redux'
 import theme from '../utils/theme'
 import {
 	ModalComponentInitialContext,
@@ -19,13 +19,13 @@ export default function App({ Component, pageProps }: AppProps) {
 		<Provider store={store}>
 			<NextNProgress options={{ showSpinner: false }} />
 			<PersistGate persistor={persistore} loading={null}>
-					<ChakraProvider theme={theme}>
-						<ModalComponentInitialContext.Provider value={{ ...modalProvider }}>
-							<ProtectRoute>
-								<Component {...pageProps} />
-							</ProtectRoute>
-						</ModalComponentInitialContext.Provider>
-					</ChakraProvider>
+				<ChakraProvider theme={theme}>
+					<ModalComponentInitialContext.Provider value={{ ...modalProvider }}>
+						<ProtectRoute>
+							<Component {...pageProps} />
+						</ProtectRoute>
+					</ModalComponentInitialContext.Provider>
+				</ChakraProvider>
 			</PersistGate>
 		</Provider>
 	)

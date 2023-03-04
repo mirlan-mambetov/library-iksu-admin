@@ -1,6 +1,5 @@
-import { ButtonOptions } from "@chakra-ui/react"
-import { ButtonHTMLAttributes, DetailedHTMLProps, DetailsHTMLAttributes } from "react"
+import { ButtonProps } from '@chakra-ui/react'
 
-export interface ButtonProps extends DetailsHTMLAttributes<HTMLButtonElement> {
-  type: "Delete" | "Update" | "Insert"
+export interface IButtonProps extends ButtonProps {
+	btnType: 'Delete' | 'Update' | 'Insert'
 }

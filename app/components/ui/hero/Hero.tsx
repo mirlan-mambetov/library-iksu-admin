@@ -1,14 +1,22 @@
-import {  Card, CardBody, CardFooter, Heading, Image, Stack, Text } from '@chakra-ui/react'
-import {FC, useContext} from 'react'
+import {
+	Card,
+	CardBody,
+	CardFooter,
+	Heading,
+	Image,
+	Stack,
+	Text
+} from '@chakra-ui/react'
+import { FC, useContext } from 'react'
 import { ButtonComponent } from '../button/ButtonComponent'
 import { HeroProps } from './Hero.props'
-import {formatDate} from '@/utils/Format-date'
-import {ModalComponentInitialContext} from '@/contexts/Modal-component'
+import { formatDate } from '@/utils/Format-date'
+import { ModalComponentInitialContext } from '@/contexts/Modal-component'
 
-export const Hero: FC<HeroProps> = ({data}) => {
-  const {handlerOpen} = useContext(ModalComponentInitialContext)
-  
-  return (
+export const Hero: FC<HeroProps> = ({ data }) => {
+	const { handlerOpen } = useContext(ModalComponentInitialContext)
+
+	return (
 		<>
 			{data ? (
 				data.map(h => (
@@ -34,7 +42,7 @@ export const Hero: FC<HeroProps> = ({data}) => {
 							</CardBody>
 							<CardFooter sx={{ display: 'flex', flexDirection: 'column' }}>
 								<ButtonComponent
-									type='Update'
+									btnType='Update'
 									onClick={() => handlerOpen(h.id, 'UPDATEHERO', 'UPDATE')}
 								/>
 								<Text sx={{ mt: '20px' }} fontSize='xs'>
