@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from 'react'
 import { ILayoutProps } from './Layout.props'
-import { Meta, ModalComponent, Navbar, Sidebar } from '@/components'
+import { Dialog, Meta, ModalComponent, Navbar, Sidebar } from '@/components'
 import styles from './Layout.module.scss'
 
 export const Layout: FC<PropsWithChildren<ILayoutProps>> = ({
@@ -20,10 +20,13 @@ export const Layout: FC<PropsWithChildren<ILayoutProps>> = ({
 			/>
 			<div className={styles.content}>
 				<ModalComponent />
+				<Dialog />
 				{/* Navbar */}
 				<Navbar />
 				{/* Sidebar */}
-				<Sidebar />
+				<div className={styles.sidebar}>
+					<Sidebar />
+				</div>
 				<main className={styles.main}>{children}</main>
 			</div>
 		</div>

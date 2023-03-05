@@ -15,7 +15,13 @@ export const Services: FC = () => {
 			{/* HERO */}
 			<Hero data={Page?.hero} />
 			{/* Tabs */}
-			{Page?.tabs && <Tabs tabs={Page.tabs} />}
+			{Page?.tabs && (
+				<Tabs
+					tabs={Page.tabs}
+					pageId={PagesConstance.SERVICEPAGE}
+					tabsTitle='Табы'
+				/>
+			)}
 		</Layout>
 	)
 }

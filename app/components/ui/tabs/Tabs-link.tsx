@@ -1,15 +1,13 @@
 import { tabsApi } from '@/../api/tabs/Tabs-api'
-import { DialogContext } from '@/contexts/Dialog-context'
 import { ModalComponentInitialContext } from '@/contexts/Modal-component'
 import { ITabsLink } from '@/interfaces/Tabs-interface'
-import { Box, Button } from '@chakra-ui/react'
-import { FC, useContext, useEffect } from 'react'
-import { AiTwotoneDelete } from 'react-icons/ai'
+import { Box } from '@chakra-ui/react'
+import { FC, useContext } from 'react'
 import { ButtonComponent } from '../button/ButtonComponent'
 
 export const TabsLink: FC<{ data: ITabsLink[] }> = ({ data }) => {
 	const { handlerOpen } = useContext(ModalComponentInitialContext)
-	const [deleteTabLink, { isLoading }] = tabsApi.useDeleteTabLinkByIdMutation()
+	const [deleteTabLink] = tabsApi.useDeleteTabLinkByIdMutation()
 
 	return (
 		<>

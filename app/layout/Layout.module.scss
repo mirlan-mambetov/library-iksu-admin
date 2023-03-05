@@ -1,19 +1,25 @@
-.layout{
-  overflow-x: hidden;
-  .content{
-    display: grid;
-    grid-template-columns: 320px 1fr  1fr;
-    grid-template-rows: 70px 1fr auto;
-    grid-template-areas: 
-      "sidebar navbar navbar"
-      "sidebar content content";
-    min-height: 100vh;
-    & >div{
-      padding: 10px;
-    }
-    .main{
-      grid-area: content;
-      padding: 10px;
-    }
-  }
+.layout {
+	overflow-x: hidden;
+	.content {
+		display: grid;
+		grid-template-columns: 320px 1fr 1fr;
+		grid-template-rows: 70px 1fr auto;
+		grid-template-areas:
+			'sidebar navbar navbar'
+			'sidebar content content';
+		min-height: 100vh;
+		& > div {
+			padding: 10px;
+		}
+		.sidebar {
+			position: fixed;
+			top: 20px;
+			overflow-y: scroll;
+			height: 100%;
+		}
+		.main {
+			grid-area: content;
+			padding: 10px;
+		}
+	}
 }

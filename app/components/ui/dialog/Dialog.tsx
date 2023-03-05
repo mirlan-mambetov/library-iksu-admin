@@ -8,7 +8,7 @@ import {
 	AlertDialogOverlay,
 	Button
 } from '@chakra-ui/react'
-import { FC, PropsWithChildren, useContext, useRef } from 'react'
+import { FC, useContext, useRef } from 'react'
 
 export const Dialog: FC = () => {
 	const { isOpen, onClose, onConfirm } = useContext(DialogContext)

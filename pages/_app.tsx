@@ -11,9 +11,11 @@ import { persistore, store } from '../store'
 import NextNProgress from 'nextjs-progressbar'
 import { PersistGate } from 'redux-persist/integration/react'
 import { ProtectRoute } from '../protecte/auth.check'
+import { DialogContext, DialogProvider } from '@/contexts/Dialog-context'
 
 export default function App({ Component, pageProps }: AppProps) {
 	const modalProvider = ModalComponentProvider()
+	const dialogProvider = DialogProvider()
 
 	return (
 		<Provider store={store}>
@@ -22,7 +24,9 @@ export default function App({ Component, pageProps }: AppProps) {
 				<ChakraProvider theme={theme}>
 					<ModalComponentInitialContext.Provider value={{ ...modalProvider }}>
 						<ProtectRoute>
-							<Component {...pageProps} />
+							<DialogContext.Provider value={{ ...dialogProvider }}>
+								<Component {...pageProps} />
+							</DialogContext.Provider>
 						</ProtectRoute>
 					</ModalComponentInitialContext.Provider>
 				</ChakraProvider>

@@ -10,7 +10,7 @@ import {
 import { FC, useContext } from 'react'
 import { ButtonComponent } from '../button/ButtonComponent'
 import { HeroProps } from './Hero.props'
-import { formatDate } from '@/utils/Format-date'
+import { LastTime } from '@/components'
 import { ModalComponentInitialContext } from '@/contexts/Modal-component'
 
 export const Hero: FC<HeroProps> = ({ data }) => {
@@ -45,10 +45,7 @@ export const Hero: FC<HeroProps> = ({ data }) => {
 									btnType='Update'
 									onClick={() => handlerOpen(h.id, 'UPDATEHERO', 'UPDATE')}
 								/>
-								<Text sx={{ mt: '20px' }} fontSize='xs'>
-									Последнее изменение:{' '}
-									{formatDate(h.updatedAt, 'YYYY-MM-DD - HH:mm:ss')}{' '}
-								</Text>
+								<LastTime data={h.createdAt} mt={5} fontSize='small' />
 							</CardFooter>
 						</Stack>
 					</Card>

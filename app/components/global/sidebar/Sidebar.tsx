@@ -21,7 +21,7 @@ export const Sidebar: FC = () => {
 				</div>
 			</div>
 			<div className={styles.end}>
-				<Text fontSize={"xx-small"} as={"p"}>
+				<Text fontSize={'xx-small'} as={'p'}>
 					Developed and maintained by the Falcon group
 				</Text>
 			</div>

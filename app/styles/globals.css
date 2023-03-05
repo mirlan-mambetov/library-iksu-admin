@@ -3,11 +3,15 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+::-webkit-scrollbar {
+	display: none;
+}
+
 :root {
 	--primary-color: #000000;
-	--white-color: #FFFFFF;
+	--white-color: #ffffff;
 	--border-color: rgba(119, 119, 119, 0.1);
-	--overlay-color: rgba(60, 60, 60, .3);
+	--overlay-color: rgba(60, 60, 60, 0.3);
 	--red-color: rgb(255, 53, 53);
 }
 body {

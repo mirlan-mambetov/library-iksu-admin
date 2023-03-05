@@ -21,7 +21,7 @@ import { useAuth } from '@/hooks/use.auth'
 
 export const Login: FC = () => {
 	const { login } = useActions()
-	const { isLoading } = useAuth()
+	const { isLoading, user } = useAuth()
 	const [show, setShow] = useState(false)
 	const handleClick = () => setShow(!show)
 
@@ -38,6 +38,7 @@ export const Login: FC = () => {
 				<title itemProp='headline'>Выполните вход</title>
 			</Head>
 			<div className={styles.login}>
+				{user && <div className={styles.redirecting}>Перенаправляем...</div>}
 				<div className={styles.content}>
 					<Formik
 						initialValues={{ email: '', password: '' }}
