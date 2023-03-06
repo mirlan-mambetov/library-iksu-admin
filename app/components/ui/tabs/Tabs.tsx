@@ -56,7 +56,7 @@ export const Tabs: FC<ITabsProps> = ({ tabs, pageId, tabsTitle }) => {
 									</Box>
 									<AccordionIcon sx={{ right: 0, position: 'absolute' }} />
 									<LastTime
-										data={tab.createdAt}
+										data={tab.updatedAt}
 										position='absolute'
 										right={20}
 										fontSize='x-small'
@@ -68,7 +68,7 @@ export const Tabs: FC<ITabsProps> = ({ tabs, pageId, tabsTitle }) => {
 										size='sm'
 										btnType='Update'
 									/>
-									{tab.isLink && (
+									{tab.isLink.length ? (
 										<ButtonComponent
 											onClick={() =>
 												handlerOpen(tab.id, 'CREATETABLINK', 'ADD')
@@ -76,7 +76,7 @@ export const Tabs: FC<ITabsProps> = ({ tabs, pageId, tabsTitle }) => {
 											size='sm'
 											btnType='Insert'
 										/>
-									)}
+									) : null}
 									{!tab.isLink.length && (
 										<ButtonComponent
 											size='sm'

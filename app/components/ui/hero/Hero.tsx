@@ -45,7 +45,7 @@ export const Hero: FC<HeroProps> = ({ data }) => {
 									btnType='Update'
 									onClick={() => handlerOpen(h.id, 'UPDATEHERO', 'UPDATE')}
 								/>
-								<LastTime data={h.createdAt} mt={5} fontSize='small' />
+								<LastTime data={h.updatedAt} mt={5} fontSize='small' />
 							</CardFooter>
 						</Stack>
 					</Card>
