@@ -17,7 +17,7 @@ export const Vestnik: FC = () => {
 			{/* Tabs */}
 			<Tabs
 				pageId={PagesConstance.VESTNIKPAGE}
-				tabs={Page.tabs}
+				tabs={Page?.tabs}
 				tabsTitle='Информация в табах'
 			/>
 		</Layout>
