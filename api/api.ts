@@ -4,7 +4,7 @@ import { TypeRootState } from '../store'
 
 export const appApi = createApi({
 	reducerPath: 'api',
-	tagTypes: ['Profile', 'Pages', 'TABS', 'ARRIVALS', 'PARTNERS'],
+	tagTypes: ['Profile', 'Pages', 'TABS', 'ARRIVALS', 'PARTNERS', 'ABOUT'],
 	baseQuery: fetchBaseQuery({
 		baseUrl: APP_HOST,
 		prepareHeaders: (headers, { getState }) => {

@@ -1,4 +1,4 @@
-import { formatDate } from '@/utils/Format-date'
+import { formatDate } from '@/../utils/Format-date'
 import { Text } from '@chakra-ui/react'
 import { FC } from 'react'
 import { ILastTimeProps } from './Last-time.props'

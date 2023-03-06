@@ -1,6 +1,10 @@
 .sidebar {
 	grid-area: sidebar;
 	border-right: 1px solid var(--border-color);
+	position: fixed;
+	overflow: scroll;
+	width: 320px;
+	height: 100%;
 	> div {
 		padding: 10px;
 	}
