@@ -7,7 +7,11 @@ interface IInitialContext {
 	formType: string
 }
 interface IInitialFunctionContext {
-	handlerOpen: (updatedId, updatedName, formType) => void
+	handlerOpen: (
+		updatedId: number,
+		updatedName: string,
+		formType: string
+	) => void
 	handlerClose: () => void
 }
 const initialContext: IInitialContext & IInitialFunctionContext = {
@@ -15,7 +19,7 @@ const initialContext: IInitialContext & IInitialFunctionContext = {
 	updatedId: 0,
 	updatedName: '',
 	formType: '',
-	handlerOpen: (updatedId, updatedName, formType) => {},
+	handlerOpen: () => {},
 	handlerClose: () => {}
 }
 

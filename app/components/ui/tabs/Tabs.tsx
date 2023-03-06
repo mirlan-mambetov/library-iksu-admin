@@ -1,4 +1,4 @@
-import { FC, useContext, useEffect } from 'react'
+import { FC, useContext } from 'react'
 import {
 	Accordion,
 	AccordionItem,
@@ -11,25 +11,13 @@ import {
 import { ButtonComponent } from '../button/ButtonComponent'
 import { ITabsProps } from './Tabs.props'
 import { ModalComponentInitialContext } from '@/contexts/Modal-component'
-import { formatDate } from '@/utils/Format-date'
 import { TabsLink } from './Tabs-link'
 import { tabsApi } from '@/../api/tabs/Tabs-api'
-import { DialogContext } from '@/contexts/Dialog-context'
 import { LastTime } from '@/components'
 
 export const Tabs: FC<ITabsProps> = ({ tabs, pageId, tabsTitle }) => {
 	const { handlerOpen } = useContext(ModalComponentInitialContext)
-	const { confirm, deletedId, onOpen, onClose } = useContext(DialogContext)
 	const [deleteTab] = tabsApi.useDeleteTabMutation()
-
-	useEffect(() => {
-		const deleteTabHanlder = async () => await deleteTab(deletedId)
-
-		if (confirm) {
-			deleteTabHanlder()
-			onClose()
-		}
-	}, [confirm])
 
 	return (
 		<>
@@ -68,7 +56,7 @@ export const Tabs: FC<ITabsProps> = ({ tabs, pageId, tabsTitle }) => {
 										size='sm'
 										btnType='Update'
 									/>
-									{tab.isLink.length ? (
+									{!tab.description ? (
 										<ButtonComponent
 											onClick={() =>
 												handlerOpen(tab.id, 'CREATETABLINK', 'ADD')
@@ -81,7 +69,7 @@ export const Tabs: FC<ITabsProps> = ({ tabs, pageId, tabsTitle }) => {
 										<ButtonComponent
 											size='sm'
 											btnType='Delete'
-											onClick={() => onOpen(tab.id)}
+											onClick={() => deleteTab(tab.id)}
 										/>
 									)}
 								</Box>
