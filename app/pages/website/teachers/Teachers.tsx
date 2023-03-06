@@ -14,6 +14,7 @@ export const Teachers: FC = () => {
 			{isLoading && <SpinnerComponent />}
 			{/* HERO */}
 			<Hero data={Page?.hero} />
+			{/* Tabs */}
 		</Layout>
 	)
 }

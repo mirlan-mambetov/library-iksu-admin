@@ -1,5 +1,5 @@
 import { pageApi } from '@/../api/pages/page-api'
-import { Hero, SpinnerComponent } from '@/components'
+import { Hero, SpinnerComponent, Tabs } from '@/components'
 import { PagesConstance } from '@/constance/Pages-constance'
 import { Layout } from '@/layout/Layout'
 import { FC } from 'react'
@@ -14,6 +14,12 @@ export const Vestnik: FC = () => {
 			{isLoading && <SpinnerComponent />}
 			{/* HERO */}
 			<Hero data={Page?.hero} />
+			{/* Tabs */}
+			<Tabs
+				pageId={PagesConstance.VESTNIKPAGE}
+				tabs={Page.tabs}
+				tabsTitle='Информация в табах'
+			/>
 		</Layout>
 	)
 }

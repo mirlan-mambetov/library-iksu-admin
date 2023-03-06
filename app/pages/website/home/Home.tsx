@@ -1,6 +1,7 @@
 import { arrivalApi } from '@/../api/arrivals/arrivals-api'
 import { pageApi } from '@/../api/pages/page-api'
-import { Hero, ImageCard, SpinnerComponent, Tabs } from '@/components'
+import { partnersApi } from '@/../api/partners/partners-api'
+import { Hero, ImageCard, Partners, SpinnerComponent, Tabs } from '@/components'
 import { PagesConstance } from '@/constance/Pages-constance'
 import { Layout } from '@/layout/Layout'
 import styles from './Home.module.scss'
@@ -10,6 +11,7 @@ export const Home = () => {
 		PagesConstance.MAINPAGE
 	)
 	const { data: arrivalImages } = arrivalApi.useFetchAllArrivalImagesQuery(null)
+	const { data: partnersData } = partnersApi.useFetchAllPartnersQuery(null)
 
 	return (
 		<Layout title='Страница главная'>
@@ -24,6 +26,8 @@ export const Home = () => {
 			/>
 			{/* Arrival images */}
 			<ImageCard data={arrivalImages} componentTitle='Картинки' />
+			{/* Partners */}
+			<Partners data={partnersData} />
 			<div className={styles.homeSection}></div>
 		</Layout>
 	)
