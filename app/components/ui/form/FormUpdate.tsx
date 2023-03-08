@@ -6,6 +6,7 @@ import { UpdateTablo } from './about/tablo/Update-tablo'
 import { UpdateArrivalImage } from './arrival/update-arrival-image'
 import { UpdateHero } from './hero/Update-hero'
 import { PartnersUpdate } from './partners/Partners-update'
+import { UpdateService } from './services-page/Update-services'
 import { UpdateTabs } from './tabs/Update-tabs'
 import { UpdateTabsLink } from './tabs/Update-tabs-link'
 
@@ -29,5 +30,7 @@ export const FormUpdate: FC = () => {
 			return <UpdateOwner id={updatedId} />
 		case 'UPDATETABLO':
 			return <UpdateTablo id={updatedId} />
+		case 'UPDATESERVICES':
+			return <UpdateService id={updatedId} />
 	}
 }

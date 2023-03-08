@@ -12,7 +12,8 @@ export const appApi = createApi({
 		'PARTNERS',
 		'ABOUT',
 		'OWNER',
-		'TABLO'
+		'TABLO',
+		'SERVICES'
 	],
 	baseQuery: fetchBaseQuery({
 		baseUrl: APP_HOST,
