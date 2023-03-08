@@ -1,10 +1,26 @@
 import { aboutInfoApi } from '@/../api/about/about-info/about-info-api'
+import { ownerApi } from '@/../api/about/owner/onwer-api'
+import { tabloApi } from '@/../api/about/tablo/Tablo-api'
 import { pageApi } from '@/../api/pages/page-api'
-import { ButtonComponent, Hero, SpinnerComponent, Tabs } from '@/components'
+import {
+	ButtonComponent,
+	Hero,
+	LastTime,
+	SpinnerComponent,
+	Tabs
+} from '@/components'
 import { PagesConstance } from '@/constance/Pages-constance'
 import { ModalComponentInitialContext } from '@/contexts/Modal-component'
 import { Layout } from '@/layout/Layout'
-import { Box, Image, Text } from '@chakra-ui/react'
+import {
+	Box,
+	Card,
+	CardBody,
+	Heading,
+	Image,
+	Stack,
+	Text
+} from '@chakra-ui/react'
 import { FC, useContext } from 'react'
 
 export const About: FC = () => {
@@ -13,6 +29,8 @@ export const About: FC = () => {
 		PagesConstance.ABOUTPAGE
 	)
 	const { data: aboutInfo } = aboutInfoApi.useFetchInfoQuery(null)
+	const { data: aboutOwner } = ownerApi.useFetchOwnerQuery(null)
+	const { data: aboutTablo } = tabloApi.useFetchTabloQuery(null)
 
 	return (
 		<Layout title='Страница о библиотеке'>
@@ -66,6 +84,87 @@ export const About: FC = () => {
 						))}
 				</Box>
 			</Box>
+			{/* ABOUT OWNER */}
+			<Box my={10}>
+				{aboutOwner &&
+					aboutOwner.map(owner => (
+						<Card key={owner.id} w={400}>
+							<CardBody>
+								<Image
+									src={`${process.env.NEXT_PUBLIC_APP_STATIC_FILES}/${owner.image}`}
+								/>
+								<Stack mt='6' spacing='3'>
+									<Heading size='sm'>{owner.name}</Heading>
+									<Text fontSize='sm'>
+										E-mail:{' '}
+										<a
+											style={{
+												color: 'red',
+												marginLeft: '5px'
+											}}
+											href={`mailto:${owner.email}`}
+										>
+											{owner.email}
+										</a>
+									</Text>
+									<Text fontSize='sm'>
+										Телефон:{' '}
+										<a
+											style={{
+												color: 'red',
+												marginLeft: '5px'
+											}}
+											href={`tel:${owner.phone}`}
+										>
+											{owner.phone}
+										</a>
+									</Text>
+								</Stack>
+								<ButtonComponent
+									onClick={() => handlerOpen(owner.id, 'UPDATEOWNER', 'UPDATE')}
+									my={6}
+									btnType='Update'
+									size='sm'
+								/>
+							</CardBody>
+						</Card>
+					))}
+			</Box>
+			{/* ABOUT TABLO */}
+			<Box
+				sx={{
+					display: 'flex',
+					justifyContent: 'space-around',
+					alignItems: 'center',
+					border: '1px solid #e3e3e3',
+					py: '30px'
+				}}
+			>
+				{aboutTablo &&
+					aboutTablo.map(tablo => (
+						<Box key={tablo.id}>
+							<Text fontSize='2xl' fontWeight='bold'>
+								{tablo.ceils}
+							</Text>
+							<Text fontSize='medium' fontWeight='medium'>
+								{tablo.description}
+							</Text>
+							<ButtonComponent
+								btnType='Update'
+								size='xs'
+								my={3}
+								onClick={() => handlerOpen(tablo.id, 'UPDATETABLO', 'UPDATE')}
+							/>
+							<LastTime data={tablo.updatedAt} fontSize='xs' />
+						</Box>
+					))}
+			</Box>
+			{/* TABS */}
+			<Tabs
+				pageId={PagesConstance.ABOUTPAGE}
+				tabs={Page?.tabs}
+				tabsTitle='Табы'
+			/>
 		</Layout>
 	)
 }

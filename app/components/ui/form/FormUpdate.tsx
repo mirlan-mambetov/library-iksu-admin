@@ -1,6 +1,8 @@
 import { ModalComponentInitialContext } from '@/contexts/Modal-component'
 import { FC, useContext } from 'react'
 import { UpdateAboutInfo } from './about/info/Update-about-info'
+import { UpdateOwner } from './about/owner/Update-owner'
+import { UpdateTablo } from './about/tablo/Update-tablo'
 import { UpdateArrivalImage } from './arrival/update-arrival-image'
 import { UpdateHero } from './hero/Update-hero'
 import { PartnersUpdate } from './partners/Partners-update'
@@ -23,5 +25,9 @@ export const FormUpdate: FC = () => {
 			return <PartnersUpdate id={updatedId} />
 		case 'UPDATEABOUTINFO':
 			return <UpdateAboutInfo id={updatedId} />
+		case 'UPDATEOWNER':
+			return <UpdateOwner id={updatedId} />
+		case 'UPDATETABLO':
+			return <UpdateTablo id={updatedId} />
 	}
 }

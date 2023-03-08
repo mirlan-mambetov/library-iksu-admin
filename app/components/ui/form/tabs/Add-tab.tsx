@@ -80,6 +80,7 @@ export const AddTab: FC<{ id: number }> = ({ id }) => {
 								<FormControl isInvalid={errors.title && touched.title}>
 									<FormLabel {...labeleStyle}>Название</FormLabel>
 									<Input
+										type='text'
 										sx={inputStyles}
 										name='title'
 										onChange={handleChange}
