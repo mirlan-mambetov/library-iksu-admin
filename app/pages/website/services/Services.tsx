@@ -18,7 +18,6 @@ import {
 	CardHeader,
 	Heading,
 	Image,
-	SimpleGrid,
 	Text
 } from '@chakra-ui/react'
 import { ModalComponentInitialContext } from '@/contexts/Modal-component'
