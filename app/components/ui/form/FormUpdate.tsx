@@ -9,6 +9,7 @@ import { PartnersUpdate } from './partners/Partners-update'
 import { UpdateService } from './services-page/Update-services'
 import { UpdateTabs } from './tabs/Update-tabs'
 import { UpdateTabsLink } from './tabs/Update-tabs-link'
+import { UpdateVestnikArchiv } from './vestnik/Update-vestnik-archiv'
 
 export const FormUpdate: FC = () => {
 	const { updatedId, updatedName } = useContext(ModalComponentInitialContext)
@@ -32,5 +33,7 @@ export const FormUpdate: FC = () => {
 			return <UpdateTablo id={updatedId} />
 		case 'UPDATESERVICES':
 			return <UpdateService id={updatedId} />
+		case 'UPDATEVESTNIKARCHIV':
+			return <UpdateVestnikArchiv id={updatedId} />
 	}
 }

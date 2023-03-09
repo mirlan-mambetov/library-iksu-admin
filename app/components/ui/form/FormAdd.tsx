@@ -3,6 +3,7 @@ import { FC, useContext } from 'react'
 import { CreatePartner } from './partners/Create-partner'
 import { AddTab } from './tabs/Add-tab'
 import { AddTabLink } from './tabs/Add-tab-link'
+import { CreateVestnikArchiv } from './vestnik/Create-vestnik-archiv'
 
 export const FormAdd: FC = () => {
 	const { updatedId, updatedName } = useContext(ModalComponentInitialContext)
@@ -13,6 +14,8 @@ export const FormAdd: FC = () => {
 		case 'CREATETABLINK':
 			return <AddTabLink id={updatedId} />
 		case 'CREATEPARTNER':
-			return <CreatePartner id={updatedId} />
+			return <CreatePartner />
+		case 'CREATEVESTNIKARCHIV':
+			return <CreateVestnikArchiv id={updatedId} />
 	}
 }

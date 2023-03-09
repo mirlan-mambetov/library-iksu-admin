@@ -9,6 +9,29 @@ export const vestnikApi = appApi.injectEndpoints({
 				method: 'Get'
 			}),
 			providesTags: () => [{ type: 'VESTNIK' }]
+		}),
+		createArchiv: build.mutation<null, { pageId: number; data: string }>({
+			query: ({ pageId, data }) => ({
+				url: `vestnik/${pageId}`,
+				method: 'Post',
+				body: data
+			}),
+			invalidatesTags: () => [{ type: 'VESTNIK' }]
+		}),
+		updateArchiv: build.mutation<null, { id: number; data: string }>({
+			query: ({ id, data }) => ({
+				url: `vestnik/${id}`,
+				method: 'Put',
+				body: data
+			}),
+			invalidatesTags: () => [{ type: 'VESTNIK' }]
+		}),
+		deleteArchiv: build.mutation<null, number>({
+			query: id => ({
+				url: `vestnik/${id}`,
+				method: 'Delete'
+			}),
+			invalidatesTags: () => [{ type: 'VESTNIK' }]
 		})
 	})
 })

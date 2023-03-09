@@ -24,7 +24,7 @@ export const Vestnik: FC = () => {
 				tabsTitle='Информация в табах'
 			/>
 			{/* VESTNIK ARCHIV */}
-			<TableComponent data={vestnikData} />
+			<TableComponent data={vestnikData} pageId={PagesConstance.VESTNIKPAGE} />
 		</Layout>
 	)
 }
