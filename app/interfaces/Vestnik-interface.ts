@@ -13,3 +13,13 @@ export interface IVestnikMaterial extends IBase {
 	views: number
 	category: IVestnikArhiv
 }
+export interface IVestnikPagination {
+	items: IVestnikMaterial[]
+	meta?: {
+		totalItems: number
+		itemCount: number
+		itemsPerPage: number
+		totalPages: number
+		currentPage: number
+	}
+}

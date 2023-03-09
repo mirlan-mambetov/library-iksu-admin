@@ -14,6 +14,7 @@ import { ButtonComponent } from '../button/ButtonComponent'
 import { formatDate } from '../../../../utils/Format-date'
 import { ModalComponentInitialContext } from '@/contexts/Modal-component'
 import { vestnikApi } from '@/../api/vestnik/Vestnik-api'
+import Link from 'next/link'
 
 export const TableComponent: FC<ITableProps> = ({ data, pageId }) => {
 	const { handlerOpen } = useContext(ModalComponentInitialContext)
@@ -44,7 +45,9 @@ export const TableComponent: FC<ITableProps> = ({ data, pageId }) => {
 				<Tbody>
 					{data?.map(item => (
 						<Tr key={item.id}>
-							<Th>{item.name}</Th>
+							<Th>
+								<Link href={`/website/vestnik/${item.id}`}>{item.name}</Link>
+							</Th>
 							<Th>{item.materials?.length}</Th>
 							<Th>{formatDate(item.createdAt, 'YYYY-MM-DD - HH:mm:ss')}</Th>
 							<Th>{formatDate(item.updatedAt, 'YYYY-MM-DD - HH:mm:ss')}</Th>

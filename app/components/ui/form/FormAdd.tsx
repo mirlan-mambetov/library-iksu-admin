@@ -4,6 +4,7 @@ import { CreatePartner } from './partners/Create-partner'
 import { AddTab } from './tabs/Add-tab'
 import { AddTabLink } from './tabs/Add-tab-link'
 import { CreateVestnikArchiv } from './vestnik/Create-vestnik-archiv'
+import { CreateVestnikMaterial } from './vestnik/Create-vestnik-material'
 
 export const FormAdd: FC = () => {
 	const { updatedId, updatedName } = useContext(ModalComponentInitialContext)
@@ -17,5 +18,7 @@ export const FormAdd: FC = () => {
 			return <CreatePartner />
 		case 'CREATEVESTNIKARCHIV':
 			return <CreateVestnikArchiv id={updatedId} />
+		case 'CREATEVESTNIKMATERIAL':
+			return <CreateVestnikMaterial id={updatedId} />
 	}
 }

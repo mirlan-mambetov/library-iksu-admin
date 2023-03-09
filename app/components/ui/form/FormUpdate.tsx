@@ -10,6 +10,7 @@ import { UpdateService } from './services-page/Update-services'
 import { UpdateTabs } from './tabs/Update-tabs'
 import { UpdateTabsLink } from './tabs/Update-tabs-link'
 import { UpdateVestnikArchiv } from './vestnik/Update-vestnik-archiv'
+import { UpdateVestnikMaterial } from './vestnik/Update-vestnik-material'
 
 export const FormUpdate: FC = () => {
 	const { updatedId, updatedName } = useContext(ModalComponentInitialContext)
@@ -35,5 +36,7 @@ export const FormUpdate: FC = () => {
 			return <UpdateService id={updatedId} />
 		case 'UPDATEVESTNIKARCHIV':
 			return <UpdateVestnikArchiv id={updatedId} />
+		case 'UPDATEVESTNIKMATERIAL':
+			return <UpdateVestnikMaterial id={updatedId} />
 	}
 }
