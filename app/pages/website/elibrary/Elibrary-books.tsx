@@ -1,5 +1,5 @@
 import { elibraryApi } from '@/../api/elibrary/elibrary-api'
-import { Books, Pagination } from '@/components'
+import { Books, ButtonComponent, Pagination } from '@/components'
 import { Layout } from '@/layout/Layout'
 import { Box, Text } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
@@ -33,6 +33,7 @@ export const ElibraryBooks: FC = () => {
 					<Text my={1} fontSize='12px'>
 						всего книг: {books?.meta.totalItems}
 					</Text>
+					<ButtonComponent btnType='Insert' size='xs' my={4} />
 					{/* Books displayed */}
 					<Books data={books?.items} />
 					<Pagination
