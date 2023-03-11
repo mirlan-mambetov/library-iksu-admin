@@ -1,5 +1,7 @@
 import { ModalComponentInitialContext } from '@/contexts/Modal-component'
 import { FC, useContext } from 'react'
+import { ElibraryCreateMainCategory } from './elibrary/Elibrary-create-main-category'
+import { ElibraryScategoryCreate } from './elibrary/Elibrary-scategory-create'
 import { CreatePartner } from './partners/Create-partner'
 import { AddTab } from './tabs/Add-tab'
 import { AddTabLink } from './tabs/Add-tab-link'
@@ -20,5 +22,9 @@ export const FormAdd: FC = () => {
 			return <CreateVestnikArchiv id={updatedId} />
 		case 'CREATEVESTNIKMATERIAL':
 			return <CreateVestnikMaterial id={updatedId} />
+		case 'CREATEELIBRARYMAINCATEGORY':
+			return <ElibraryCreateMainCategory />
+		case 'CREATEELIBRARYSCATEGORY':
+			return <ElibraryScategoryCreate id={updatedId} />
 	}
 }

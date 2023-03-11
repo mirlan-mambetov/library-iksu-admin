@@ -11,6 +11,7 @@ export const ElibraryCategories: FC = () => {
 	const [archivId, setArchivId] = useState(null)
 	const { handlerOpen } = useContext(ModalComponentInitialContext)
 	const router = useRouter()
+	const [deleteCategory] = elibraryApi.useDeleteSecondCategoryMutation()
 	const { data: category, isLoading } =
 		elibraryApi.useFetchMainCategoriesByIdQuery(Number(router.query.id), {
 			skip: !router.query.id
@@ -29,13 +30,23 @@ export const ElibraryCategories: FC = () => {
 			}`}
 		>
 			{isLoading ? (
-				<span>Загрузка данных..</span>
+				<Box>
+					<Text>Загрузка данных..</Text>
+				</Box>
 			) : (
 				<Box>
-					<Text fontSize='20px'>Категория: {category.name}</Text>
+					<Text fontSize='20px'>Категория: {category?.name}</Text>
 					<Text fontSize='12px' my={1}>
-						всего подкатегорий {category.secondCategory.length}
+						всего подкатегорий {category?.secondCategory.length}
 					</Text>
+					<ButtonComponent
+						btnType='Insert'
+						size='xs'
+						my={3}
+						onClick={() =>
+							handlerOpen(category.id, 'CREATEELIBRARYSCATEGORY', 'ADD')
+						}
+					/>
 					<Box
 						sx={{ display: 'flex', flexDirection: 'column', gap: '15px' }}
 						pt={4}
@@ -53,9 +64,23 @@ export const ElibraryCategories: FC = () => {
 									</Text>
 								</Link>
 								<Box sx={{ display: 'flex', gap: '10px' }} py={4}>
-									<ButtonComponent btnType='Update' size='xs' />
+									<ButtonComponent
+										btnType='Update'
+										size='xs'
+										onClick={() =>
+											handlerOpen(
+												categories.id,
+												'UPDATEELIBRARYSCATEGORY',
+												'UPDATE'
+											)
+										}
+									/>
 									{!categories.books.length && (
-										<ButtonComponent btnType='Delete' size='xs' />
+										<ButtonComponent
+											btnType='Delete'
+											size='xs'
+											onClick={() => deleteCategory(categories.id)}
+										/>
 									)}
 								</Box>
 							</Box>
