@@ -5,6 +5,7 @@ import { UpdateOwner } from './about/owner/Update-owner'
 import { UpdateTablo } from './about/tablo/Update-tablo'
 import { UpdateArrivalImage } from './arrival/update-arrival-image'
 import { ElibraryScategoryUpdate } from './elibrary/Elibrary-scategory-update'
+import { ElibraryUpdateBook } from './elibrary/Elibrary-update-book'
 import { ElibraryUpdateMainCategory } from './elibrary/Elibrary-update-main-category'
 import { UpdateHero } from './hero/Update-hero'
 import { PartnersUpdate } from './partners/Partners-update'
@@ -44,5 +45,7 @@ export const FormUpdate: FC = () => {
 			return <ElibraryUpdateMainCategory id={updatedId} />
 		case 'UPDATEELIBRARYSCATEGORY':
 			return <ElibraryScategoryUpdate id={updatedId} />
+		case 'UPDATEELIBRARYBOOK':
+			return <ElibraryUpdateBook id={updatedId} />
 	}
 }

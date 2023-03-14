@@ -1,9 +1,14 @@
+import { elibraryApi } from '@/../api/elibrary/elibrary-api'
+import { ModalComponentInitialContext } from '@/contexts/Modal-component'
 import { IElibraryBooks } from '@/interfaces/Elibrary-interface'
 import { Box, Text } from '@chakra-ui/react'
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 import { ButtonComponent } from '../button/ButtonComponent'
 
 export const Books: FC<{ data: IElibraryBooks[] }> = ({ data }) => {
+	const { handlerOpen } = useContext(ModalComponentInitialContext)
+	const [deleteBook] = elibraryApi.useDeleteBookMutation()
+
 	return (
 		<Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }} py={5}>
 			{data ? (
@@ -49,8 +54,18 @@ export const Books: FC<{ data: IElibraryBooks[] }> = ({ data }) => {
 							Файл
 						</a>
 						<Box sx={{ display: 'flex', gap: '12px' }} my={4}>
-							<ButtonComponent btnType='Update' size='xs' />
-							<ButtonComponent btnType='Delete' size='xs' />
+							<ButtonComponent
+								btnType='Update'
+								size='xs'
+								onClick={() =>
+									handlerOpen(book.id, 'UPDATEELIBRARYBOOK', 'UPDATE')
+								}
+							/>
+							<ButtonComponent
+								btnType='Delete'
+								size='xs'
+								onClick={() => deleteBook(book.id)}
+							/>
 						</Box>
 					</Box>
 				))

@@ -1,11 +1,13 @@
 import { elibraryApi } from '@/../api/elibrary/elibrary-api'
 import { Books, ButtonComponent, Pagination } from '@/components'
+import { ModalComponentInitialContext } from '@/contexts/Modal-component'
 import { Layout } from '@/layout/Layout'
 import { Box, Text } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
-import { FC, useState } from 'react'
+import { FC, useState, useContext } from 'react'
 
 export const ElibraryBooks: FC = () => {
+	const { handlerOpen } = useContext(ModalComponentInitialContext)
 	const router = useRouter()
 	const [page, setPage] = useState(1)
 	const { data: category, isLoading } =
@@ -29,11 +31,18 @@ export const ElibraryBooks: FC = () => {
 				<span>Загрузка данных...</span>
 			) : (
 				<Box>
-					<Text>Категория: {category.name}</Text>
+					<Text>Категория: {category?.name}</Text>
 					<Text my={1} fontSize='12px'>
 						всего книг: {books?.meta.totalItems}
 					</Text>
-					<ButtonComponent btnType='Insert' size='xs' my={4} />
+					<ButtonComponent
+						btnType='Insert'
+						size='xs'
+						my={4}
+						onClick={() =>
+							handlerOpen(category.id, 'CREATEELIBRARYBOOK', 'ADD')
+						}
+					/>
 					{/* Books displayed */}
 					<Books data={books?.items} />
 					<Pagination

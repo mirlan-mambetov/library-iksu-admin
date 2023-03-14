@@ -47,7 +47,7 @@ export const elibraryApi = appApi.injectEndpoints({
 			query: ({ id, query }) => ({
 				url: `elibrary/books/category/${id}?page=${query?.page}&limit=${query?.limit}`
 			}),
-			providesTags: ['Pages']
+			providesTags: () => [{ type: 'ELIBRARY' }]
 		}),
 		createMainCategory: build.mutation<null, FormData>({
 			query: body => ({
@@ -91,6 +91,29 @@ export const elibraryApi = appApi.injectEndpoints({
 		deleteSecondCategory: build.mutation<null, number>({
 			query: id => ({
 				url: `elibrary/category/${id}`,
+				method: 'Delete'
+			}),
+			invalidatesTags: () => [{ type: 'ELIBRARY' }]
+		}),
+		createBook: build.mutation<null, { id: number; data: FormData }>({
+			query: ({ id, data }) => ({
+				url: `elibrary/book/${id}`,
+				method: 'Post',
+				body: data
+			}),
+			invalidatesTags: () => [{ type: 'ELIBRARY' }]
+		}),
+		updateBook: build.mutation<null, { id: number; data: FormData }>({
+			query: ({ id, data }) => ({
+				url: `elibrary/book/${id}`,
+				method: 'Put',
+				body: data
+			}),
+			invalidatesTags: () => [{ type: 'ELIBRARY' }]
+		}),
+		deleteBook: build.mutation<null, number>({
+			query: id => ({
+				url: `elibrary/books/${id}`,
 				method: 'Delete'
 			}),
 			invalidatesTags: () => [{ type: 'ELIBRARY' }]

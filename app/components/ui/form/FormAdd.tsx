@@ -7,6 +7,7 @@ import { AddTab } from './tabs/Add-tab'
 import { AddTabLink } from './tabs/Add-tab-link'
 import { CreateVestnikArchiv } from './vestnik/Create-vestnik-archiv'
 import { CreateVestnikMaterial } from './vestnik/Create-vestnik-material'
+import { ElibraryCreateBook } from './elibrary/Elibrary-create-book'
 
 export const FormAdd: FC = () => {
 	const { updatedId, updatedName } = useContext(ModalComponentInitialContext)
@@ -26,5 +27,7 @@ export const FormAdd: FC = () => {
 			return <ElibraryCreateMainCategory />
 		case 'CREATEELIBRARYSCATEGORY':
 			return <ElibraryScategoryCreate id={updatedId} />
+		case 'CREATEELIBRARYBOOK':
+			return <ElibraryCreateBook id={updatedId} />
 	}
 }
