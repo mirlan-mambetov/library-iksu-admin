@@ -1,4 +1,4 @@
-import { LineChart, PieChart } from '@/components'
+import { LineChart, PieChart, UserList } from '@/components'
 import { Layout } from '@/layout/Layout'
 import { FC } from 'react'
 import { Grid, GridItem } from '@chakra-ui/react'
@@ -16,6 +16,8 @@ export const DashboardPage: FC = () => {
 					<LineChart />
 				</GridItem>
 			</Grid>
+			{/* USERS */}
+			<UserList />
 		</Layout>
 	)
 }
