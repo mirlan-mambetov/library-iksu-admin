@@ -1,5 +1,7 @@
+import { userApi } from '@/../api/users/users-api'
 import { errorsHandler, isErrorWithMessage } from '@/../utils/error-handler'
 import { inputStyles, labeleStyle } from '@/../utils/styles'
+import { useModalComponent } from '@/hooks/use.modal'
 import {
 	Button,
 	FormControl,
@@ -15,10 +17,14 @@ import { FC } from 'react'
 
 export const CreateUser: FC = () => {
 	const toastr = useToast()
+	const { handlerClose } = useModalComponent()
+	const [createUser] = userApi.useCreateUserMutation()
 
 	const submitHandler = async (values, actions) => {
 		try {
-			console.log(values)
+			await createUser(values)
+				.unwrap()
+				.then(() => handlerClose())
 		} catch (err) {
 			if (errorsHandler(err)) {
 				const errMsg =

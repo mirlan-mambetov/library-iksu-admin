@@ -5,9 +5,7 @@ export const userApi = appApi.injectEndpoints({
 	endpoints: build => ({
 		fetchUsers: build.query<IUser[], null>({
 			query: () => ({
-				url: 'users',
-				method: 'Get',
-				credentials: 'include'
+				url: 'users'
 			}),
 			providesTags: () => [{ type: 'USERS' }]
 		}),

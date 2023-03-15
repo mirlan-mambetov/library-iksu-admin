@@ -1,4 +1,5 @@
 import { userApi } from '@/../api/users/users-api'
+import { formatDate } from '@/../utils/Format-date'
 import { useModalComponent } from '@/hooks/use.modal'
 import {
 	Box,
@@ -27,7 +28,7 @@ export const UserList: FC = () => {
 					<Box>
 						<Text fontSize='2xl'>Пользователи</Text>
 						<Box my={4}>
-							<Text fontSize='small'>Всего 22</Text>
+							<Text fontSize='small'>всего: {users?.length}</Text>
 						</Box>
 						<ButtonComponent
 							my={1}
@@ -42,16 +43,14 @@ export const UserList: FC = () => {
 								<Th>E-mail</Th>
 								<Th>Имя</Th>
 								<Th>Дата регистрации</Th>
-								<Th>Действие</Th>
 							</Tr>
 						</Thead>
 						<Tbody>
 							{users?.map(user => (
 								<Tr key={user.id}>
+									<Th>{user.email}</Th>
 									<Th>{user.name}</Th>
-									<Th>
-										<ButtonComponent btnType='Update' size='xs' />
-									</Th>
+									<Th>{formatDate(user.createdAt, 'YYYY-MM-D')}</Th>
 								</Tr>
 							))}
 						</Tbody>
