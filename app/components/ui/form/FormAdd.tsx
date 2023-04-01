@@ -10,6 +10,7 @@ import { CreateVestnikMaterial } from './vestnik/Create-vestnik-material'
 import { ElibraryCreateBook } from './elibrary/Elibrary-create-book'
 import { CreateUser } from './users/Create-user'
 import { TeachersCategoryCreate } from './teachers/Teachers-category-create'
+import { TeachersWorkCreate } from './teachers/Teachers-work-create'
 
 export const FormAdd: FC = () => {
 	const { updatedId, updatedName } = useContext(ModalComponentInitialContext)
@@ -35,5 +36,7 @@ export const FormAdd: FC = () => {
 			return <CreateUser />
 		case 'CREATETEACHERSCATEGORY':
 			return <TeachersCategoryCreate />
+		case 'CREATETEACHERSWORK':
+			return <TeachersWorkCreate id={updatedId} />
 	}
 }

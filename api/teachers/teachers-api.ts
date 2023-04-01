@@ -21,6 +21,13 @@ export const teachersApi = appApi.injectEndpoints({
 			}),
 			providesTags: () => [{ type: 'TEACHERS' }]
 		}),
+		fetchOneWork: build.query<ITeachersWorks, number>({
+			query: id => ({
+				url: `teachers/works/${id}`,
+				method: 'Get'
+			}),
+			providesTags: () => [{ type: 'TEACHERS' }]
+		}),
 		createTeachersCategory: build.mutation<
 			null,
 			{ body: Pick<ITeachers, 'name' | 'description'> }
@@ -46,6 +53,29 @@ export const teachersApi = appApi.injectEndpoints({
 		deleteTeachersCategory: build.mutation<null, number>({
 			query: id => ({
 				url: `teachers/${id}`,
+				method: 'Delete'
+			}),
+			invalidatesTags: () => [{ type: 'TEACHERS' }]
+		}),
+		createTeachersWork: build.mutation<null, { id: number; body: FormData }>({
+			query: ({ id, body }) => ({
+				url: `teachers/works/${id}`,
+				method: 'Post',
+				body
+			}),
+			invalidatesTags: () => [{ type: 'TEACHERS' }]
+		}),
+		updateTeachersWork: build.mutation<null, { id: number; body: FormData }>({
+			query: ({ id, body }) => ({
+				url: `teachers/works/${id}`,
+				method: 'Put',
+				body
+			}),
+			invalidatesTags: () => [{ type: 'TEACHERS' }]
+		}),
+		deleteTeachersWork: build.mutation<null, number>({
+			query: id => ({
+				url: `teachers/works/${id}`,
 				method: 'Delete'
 			}),
 			invalidatesTags: () => [{ type: 'TEACHERS' }]
