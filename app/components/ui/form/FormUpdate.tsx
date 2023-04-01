@@ -12,6 +12,7 @@ import { PartnersUpdate } from './partners/Partners-update'
 import { UpdateService } from './services-page/Update-services'
 import { UpdateTabs } from './tabs/Update-tabs'
 import { UpdateTabsLink } from './tabs/Update-tabs-link'
+import { TeachersCategoryUpdate } from './teachers/Teachers-category-update'
 import { UpdateVestnikArchiv } from './vestnik/Update-vestnik-archiv'
 import { UpdateVestnikMaterial } from './vestnik/Update-vestnik-material'
 
@@ -47,5 +48,7 @@ export const FormUpdate: FC = () => {
 			return <ElibraryScategoryUpdate id={updatedId} />
 		case 'UPDATEELIBRARYBOOK':
 			return <ElibraryUpdateBook id={updatedId} />
+		case 'UPDATETEACHERSCATEGORY':
+			return <TeachersCategoryUpdate id={updatedId} />
 	}
 }

@@ -16,7 +16,8 @@ export const appApi = createApi({
 		'SERVICES',
 		'VESTNIK',
 		'ELIBRARY',
-		'USERS'
+		'USERS',
+		'TEACHERS'
 	],
 	baseQuery: fetchBaseQuery({
 		baseUrl: APP_HOST,
