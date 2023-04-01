@@ -8,6 +8,9 @@ import { ElibraryScategoryUpdate } from './elibrary/Elibrary-scategory-update'
 import { ElibraryUpdateBook } from './elibrary/Elibrary-update-book'
 import { ElibraryUpdateMainCategory } from './elibrary/Elibrary-update-main-category'
 import { UpdateHero } from './hero/Update-hero'
+import { JournalHeadItemsUpdate } from './journal/journal-head-items-update'
+import { JournalHeadUpdate } from './journal/Journal-head-update'
+import { JournalUpdate } from './journal/Journal-update'
 import { PartnersUpdate } from './partners/Partners-update'
 import { UpdateService } from './services-page/Update-services'
 import { UpdateTabs } from './tabs/Update-tabs'
@@ -53,5 +56,11 @@ export const FormUpdate: FC = () => {
 			return <TeachersCategoryUpdate id={updatedId} />
 		case 'UPDATETEACHERWORK':
 			return <TeachersWorkUpdate id={updatedId} />
+		case 'UPDATEJOURNALHEAD':
+			return <JournalHeadUpdate id={updatedId} />
+		case 'UPDATEJOURNALITEMS':
+			return <JournalHeadItemsUpdate id={updatedId} />
+		case 'UPDATEJOURNAL':
+			return <JournalUpdate id={updatedId} />
 	}
 }

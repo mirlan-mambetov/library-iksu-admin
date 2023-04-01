@@ -1,6 +1,12 @@
 import { pageApi } from '@/../api/pages/page-api'
 import { vestnikApi } from '@/../api/vestnik/Vestnik-api'
-import { Hero, SpinnerComponent, TableComponent, Tabs } from '@/components'
+import {
+	Hero,
+	Journal,
+	SpinnerComponent,
+	TableComponent,
+	Tabs
+} from '@/components'
 import { PagesConstance } from '@/constance/Pages-constance'
 import { IVestnikArhiv } from '@/interfaces/Vestnik-interface'
 import { Layout } from '@/layout/Layout'
@@ -17,6 +23,8 @@ export const Vestnik: FC = () => {
 			{isLoading && <SpinnerComponent />}
 			{/* HERO */}
 			<Hero data={Page?.hero} />
+			{/* Journal */}
+			<Journal data={Page?.journal} />
 			{/* Tabs */}
 			<Tabs
 				pageId={PagesConstance.VESTNIKPAGE}
