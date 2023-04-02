@@ -11,6 +11,7 @@ import { ElibraryCreateBook } from './elibrary/Elibrary-create-book'
 import { CreateUser } from './users/Create-user'
 import { TeachersCategoryCreate } from './teachers/Teachers-category-create'
 import { TeachersWorkCreate } from './teachers/Teachers-work-create'
+import { NewsCreate } from './news/News-create'
 
 export const FormAdd: FC = () => {
 	const { updatedId, updatedName } = useContext(ModalComponentInitialContext)
@@ -38,5 +39,7 @@ export const FormAdd: FC = () => {
 			return <TeachersCategoryCreate />
 		case 'CREATETEACHERSWORK':
 			return <TeachersWorkCreate id={updatedId} />
+		case 'NEWSCREATE':
+			return <NewsCreate />
 	}
 }

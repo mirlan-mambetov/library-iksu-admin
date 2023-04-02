@@ -11,6 +11,7 @@ import { UpdateHero } from './hero/Update-hero'
 import { JournalHeadItemsUpdate } from './journal/journal-head-items-update'
 import { JournalHeadUpdate } from './journal/Journal-head-update'
 import { JournalUpdate } from './journal/Journal-update'
+import { NewsUpdate } from './news/News-update'
 import { PartnersUpdate } from './partners/Partners-update'
 import { UpdateService } from './services-page/Update-services'
 import { UpdateTabs } from './tabs/Update-tabs'
@@ -62,5 +63,7 @@ export const FormUpdate: FC = () => {
 			return <JournalHeadItemsUpdate id={updatedId} />
 		case 'UPDATEJOURNAL':
 			return <JournalUpdate id={updatedId} />
+		case 'NEWSUPDATE':
+			return <NewsUpdate id={updatedId} />
 	}
 }
