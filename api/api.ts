@@ -18,7 +18,8 @@ export const appApi = createApi({
 		'ELIBRARY',
 		'USERS',
 		'TEACHERS',
-		'NEWS'
+		'NEWS',
+		'INTERNET'
 	],
 	baseQuery: fetchBaseQuery({
 		baseUrl: APP_HOST,

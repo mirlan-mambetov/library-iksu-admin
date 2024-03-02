@@ -1,8 +1,8 @@
-import { FC, useState, useRef } from 'react'
-import styles from './Sidebar.module.scss'
-import { Text } from '@chakra-ui/react'
-import { Menu } from '@/components/ui/menu/Menu'
 import { menuData } from '@/components/ui/menu/data/menu.data'
+import { Menu } from '@/components/ui/menu/Menu'
+import { Text } from '@chakra-ui/react'
+import { FC } from 'react'
+import styles from './Sidebar.module.scss'
 
 export const Sidebar: FC = () => {
 	return (

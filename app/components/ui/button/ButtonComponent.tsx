@@ -1,8 +1,8 @@
 import { Button } from '@chakra-ui/react'
 import { FC } from 'react'
 import { AiTwotoneDelete } from 'react-icons/ai'
-import { RxUpdate } from 'react-icons/rx'
 import { MdOutlineAddCircle } from 'react-icons/md'
+import { RxUpdate } from 'react-icons/rx'
 import { IButtonProps } from './Button.props'
 
 export const ButtonComponent: FC<IButtonProps> = ({ btnType, ...props }) => {

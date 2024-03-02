@@ -7,12 +7,12 @@ import {
 } from 'react-icons/ai'
 // import { GiEarthAfricaEurope } from 'react-icons/gi'
 // import { AiOutlineBarChart } from 'react-icons/ai'
-import { FaQuestionCircle } from 'react-icons/fa'
+import { BsLayoutTextWindowReverse } from 'react-icons/bs'
+import { FaEthernet, FaQuestionCircle } from 'react-icons/fa'
+import { ImBooks } from 'react-icons/im'
 import { IoNewspaper, IoNewspaperOutline } from 'react-icons/io5'
 import { MdMiscellaneousServices } from 'react-icons/md'
 import { RiFilePaper2Fill } from 'react-icons/ri'
-import { ImBooks } from 'react-icons/im'
-import { BsLayoutTextWindowReverse } from 'react-icons/bs'
 
 export const menuData = {
 	dashboard: [
@@ -82,6 +82,11 @@ export const menuData = {
 			link: '/website/rules',
 			name: 'Правила пользования',
 			icon: AiOutlineOrderedList
+		},
+		{
+			link: '/website/internet',
+			name: 'Ссылки интернет',
+			icon: FaEthernet
 		}
 		// {
 		// 	link: '/website/contacts',
